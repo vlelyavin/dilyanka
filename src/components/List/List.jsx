@@ -16,11 +16,16 @@ export const List = ({ dark }) => {
     const handleScroll = (e) => {
       items.forEach((item, idx) => {
         const coords = item.getBoundingClientRect().top;
-        if (coords < 800) {
-          const positionY = window.pageYOffset - list.offsetTop - item.offsetTop;
-          item.style.transform = `scale(${1 - positionY / 3000 >= 1 ? 1 : 1 - positionY / 3000}) rotateX(-${
-            positionY / 80
-          }deg)`;
+
+        if (window.innerWidth > 800) {
+          if (coords < 800) {
+            const positionY = window.pageYOffset - list.offsetTop - item.offsetTop;
+            item.style.transform = `scale(${1 - positionY / 3000 >= 1 ? 1 : 1 - positionY / 3000}) rotateX(-${
+              positionY / 80
+            }deg)`;
+          } else {
+            item.style.transform = "unset";
+          }
         } else {
           item.style.transform = "unset";
         }
@@ -43,9 +48,15 @@ export const List = ({ dark }) => {
     const items = document.querySelectorAll(".list__item");
     items.forEach((item, idx) => {
       const coords = item.getBoundingClientRect().top;
-      if (coords < 800) {
-        const positionY = window.pageYOffset - list.offsetTop - item.offsetTop;
-        item.style.transform = `scale(${1 - positionY / 3000 >= 1 ? 1 : 1 - positionY / 3000})`;
+      if (window.innerWidth > 800) {
+        if (coords < 800) {
+          const positionY = window.pageYOffset - list.offsetTop - item.offsetTop;
+          item.style.transform = `scale(${1 - positionY / 3000 >= 1 ? 1 : 1 - positionY / 3000}) rotateX(-${
+            positionY / 80
+          }deg)`;
+        } else {
+          item.style.transform = "unset";
+        }
       } else {
         item.style.transform = "unset";
       }
