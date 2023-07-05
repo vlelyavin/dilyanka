@@ -18,6 +18,7 @@ export const List = ({ dark }) => {
         const coords = item.getBoundingClientRect().top;
 
         if (window.innerWidth > 800) {
+          item.style.position = "sticky";
           if (coords < 800) {
             const positionY = window.pageYOffset - list.offsetTop - item.offsetTop;
             item.style.transform = `scale(${1 - positionY / 3000 >= 1 ? 1 : 1 - positionY / 3000}) rotateX(-${
@@ -27,6 +28,7 @@ export const List = ({ dark }) => {
             item.style.transform = "unset";
           }
         } else {
+          item.style.position = "static";
           item.style.transform = "unset";
         }
       });
@@ -49,6 +51,7 @@ export const List = ({ dark }) => {
     items.forEach((item, idx) => {
       const coords = item.getBoundingClientRect().top;
       if (window.innerWidth > 800) {
+        item.style.position = "sticky";
         if (coords < 800) {
           const positionY = window.pageYOffset - list.offsetTop - item.offsetTop;
           item.style.transform = `scale(${1 - positionY / 3000 >= 1 ? 1 : 1 - positionY / 3000}) rotateX(-${
@@ -58,6 +61,7 @@ export const List = ({ dark }) => {
           item.style.transform = "unset";
         }
       } else {
+        item.style.position = "static";
         item.style.transform = "unset";
       }
     });
