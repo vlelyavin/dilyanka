@@ -1,0 +1,86 @@
+@import "../../../assets/style/variables.scss";
+
+.protection {
+  background: $black;
+  position: relative;
+  padding-top: 150px;
+  padding-bottom: 90px;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    background: $white;
+  }
+  &__inner {
+    width: 100%;
+    text-align: right;
+  }
+  &__title {
+    color: $white;
+    padding-bottom: 50px;
+  }
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  &__column {
+    background: #53969a;
+    border-radius: 40px;
+    padding: 30px;
+    min-height: 450px;
+    &__upper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-bottom: 20px;
+
+      &__title {
+        font-size: 50px;
+        font-weight: 500;
+      }
+      &__icon {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .protection {
+    padding-top: 100px;
+    &__row {
+      flex-direction: column;
+    }
+    &__column {
+      min-height: unset;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .protection {
+    &__column {
+      min-height: unset;
+      &__upper {
+        &__title {
+          font-size: 25px;
+        }
+        &__icon {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}

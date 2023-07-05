@@ -1,0 +1,211 @@
+@import "../../../assets/style/variables.scss";
+
+.product__intro {
+  background: $white;
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    padding-bottom: 20px;
+  }
+  &__left {
+    width: calc(50% - 30px);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__image {
+    &__list {
+      display: flex;
+      align-items: center;
+      height: 100px;
+      overflow: hidden;
+      border-radius: 12px;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+
+      &__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        &.left {
+          left: -1px;
+        }
+        &.right {
+          right: -1px;
+        }
+        height: 100%;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+      }
+      &__item {
+        object-fit: cover;
+        width: 40% !important;
+        height: 100%;
+      }
+    }
+  }
+  &__slider {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &__dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba($color: $white, $alpha: 0.5);
+        backdrop-filter: blur(4px);
+      }
+      .activeDot {
+        background: $white;
+      }
+    }
+    &__arrows {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 20px;
+      z-index: 3;
+    }
+    &__arrow {
+      transition: 0.2s;
+      &:hover {
+        box-shadow: 0 0 0 2px $white;
+      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      backdrop-filter: blur(4px);
+    }
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  }
+  &__map {
+    width: 100%;
+    height: 100%;
+    &__container {
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      overflow: hidden;
+      width: 100%;
+      max-height: 200px;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &__title {
+      font-size: 50px;
+      font-weight: 500;
+    }
+    &__address {
+      margin: 20px 0;
+      display: flex;
+      align-items: flex-start;
+      font-size: 1.1rem;
+      gap: 5px;
+      &__icon {
+        position: relative;
+        top: -5px;
+      }
+    }
+    &__button {
+      &__container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+      margin-top: 30px;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px $black;
+      text-align: center;
+      transition: 0.2s;
+      &:hover {
+        transform: rotate(3deg);
+        box-shadow: 0 0 0 1px $black, 0 0 0 4px $white, 0 0 0 6px $black;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .product__intro {
+    &__inner {
+      flex-direction: column;
+      padding-bottom: 3px;
+    }
+    &__left {
+      width: 100%;
+    }
+    &__slider {
+      width: 100%;
+    }
+    &__info {
+      display: none;
+    }
+  }
+}
+
+@media screen and(max-width: 800px) {
+  .product__intro {
+    padding-top: 60px;
+    padding-bottom: 30px;
+    &__map {
+      &__container {
+        border-bottom-right-radius: 45px;
+      }
+    }
+    &__slider {
+      height: 250px;
+      &__arrows {
+        padding: 0 10px;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+      }
+      &__arrow {
+        height: 100px;
+        width: 35px;
+        border-radius: 10px;
+      }
+    }
+  }
+}

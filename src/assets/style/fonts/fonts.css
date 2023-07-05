@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("./TT\ Firs\ Neue\ Trial\ Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("./TT\ Firs\ Neue\ Trial\ Light\ Italic.ttf");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("./TT\ Firs\ Neue\ Trial\ Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("./TT\ Firs\ Neue\ Trial\ Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("./TT\ Firs\ Neue\ Trial\ Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("./TT\ Firs\ Neue\ Trial\ Medium\ Italic.ttf");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("./TT\ Firs\ Neue\ Trial\ DemiBold.ttf");
+  font-weight: 600;
+}

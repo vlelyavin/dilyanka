@@ -1,0 +1,188 @@
+@import "../../assets/style/variables.scss";
+
+.header {
+  position: fixed !important;
+  z-index: 1001 !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: $white;
+  background: $black;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+  &__lower {
+    position: fixed;
+    padding: 10px 0;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: $green;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color: $white;
+    transform: translateY(-100%);
+    opacity: 0;
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      &__line {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+    transition: 0.3s;
+    &.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  &__inner {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  &__link {
+    position: relative;
+    font-size: 1rem;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1.5px;
+      bottom: -2px;
+      left: 0;
+      background-color: $white;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+      z-index: 1;
+    }
+    &:hover::before {
+      transform: scaleX(1) !important;
+      transform-origin: bottom left !important;
+    }
+  }
+  &__button {
+    font-size: 0.9rem;
+    padding: 10px 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 0 1.5px $white;
+    transition: 0.5s;
+    &:hover {
+      background: rgba($color: $white, $alpha: 0.1);
+      box-shadow: 0 0 0 2px $white;
+    }
+  }
+  &__menu {
+    width: 25px;
+    height: 20px;
+    position: relative;
+    display: none;
+    &__container {
+      display: none;
+    }
+    &__line {
+      position: absolute;
+      width: 100%;
+      height: 2.5px;
+      background: white;
+      border-radius: 3px;
+      transition: 0.3s;
+      &:nth-child(1) {
+        top: 0;
+      }
+      &:nth-child(2) {
+        top: 9px;
+      }
+      &:nth-child(3) {
+        top: 18px;
+      }
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  width: 200px;
+  top: 50px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: $white;
+  z-index: 1000;
+  text-align: center;
+  border-bottom-left-radius: 20px;
+  padding: 20px;
+  transform: translateX(110%);
+  transition: 0.3s;
+  backdrop-filter: blur(3px);
+  background: $black;
+}
+
+.menuVisible {
+  transform: translateX(0);
+}
+
+.menuIconTrasform .header__menu__line:nth-child(1) {
+  transform: translate(1px, 9px) rotate(45deg);
+}
+.menuIconTrasform .header__menu__line:nth-child(2) {
+  opacity: 0;
+}
+
+.menuIconTrasform .header__menu__line:nth-child(3) {
+  transform: translate(1px, -9px) rotate(-45deg);
+}
+
+@media screen and(max-width: 600px) {
+  .header__inner .header__button {
+    display: none;
+  }
+  .header {
+    height: 50px;
+    &__links {
+      display: none;
+    }
+    &__lower {
+      display: none;
+    }
+    &__left {
+      gap: 30px;
+    }
+    &__nav {
+      display: none;
+    }
+    &__menu {
+      display: flex;
+      &__container {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
